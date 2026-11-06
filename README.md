@@ -60,10 +60,10 @@ Gemma 3 gave the shortest and simplest explanation. Llama 3.2 provided a more de
 
 We also noticed that not all models followed the prompt in exactly the same way. The prompt requested three sentences, but Qwen 2.5 returned only two sentences.
 
-To get another perspective, we also compared the answers with ChatGPT using the same prompt. ChatGPT provided a clear explanation and included examples of how AI is used in different areas, such as healthcare, education and software development. Its answer was more balanced in terms of explaining AI and giving practical examples.
+To get another perspective, we also compared the answers with ChatGPT using the same prompt. ChatGPT provided a clear explanation and included examples of how AI is used in different areas, such as healthcare, education and software development. However, we might interpret ChatGPT's answer as clearer because of how the answer is formatted and packaged in a way that gives a very clear overview.
 
 Regarding response time, Gemma 3 was the fastest in our test, taking **7.53 seconds**. Llama 3.2 took **19.15 seconds**, while Qwen 2.5 took **19.05 seconds**.
 
 These measurements were taken from one run, so response times may vary depending on the computer and whether a model needs to be loaded. We did not measure ChatGPT's response time under the same conditions because it runs through an online service rather than locally.
 
-Overall, this project showed us how different language models can generate different answers to the same prompt. It also showed that local models can provide useful answers, while ChatGPT gave a more balanced response in our comparison.
+Overall, this project showed us how different language models can generate different answers to the same prompt which shows us a real example of non-determinism.
