@@ -32,6 +32,8 @@ There were also several examples of more subjective responses, where Stockholm w
 
 Something that all these examples have in common is that the model provides additional information that we did not ask for which seems to increase the risk of providing incorrect or confusing information. We could potentially reduce this risk with clearer prompts, for example by asking the model to only respond with the name of the capital.
 
+A more restrictive prompt, asking for only the capital's name, might reduce unnecessary details and the risk of introducing incorrect information. However, this would need to be tested to determine whether it actually improves reliability.
+
 ## Limitations
 
 Our results made us question whether checking for the presence of the correct capital in the responses is a sufficient property check. In several cases, the correct capital was included, but we still consider the response incorrect because of other parts of the response.
@@ -44,10 +46,6 @@ We used Gemma 3 (gemma3:1b) as our generator and Llama 3.2 (llama3.2:latest) as 
 
 This means that we only use LLM-as-a-Judge in two out of five tests, and not in our consistency tests. We are testing the generator and the judge separately. It would be interesting to see if the judge could detect the hallucinations that our property checks missed. Since the judge itself is also an AI that can make mistakes, we would still want to manually review the responses to understand if a mistake was made and by whom - the generator or the judge.
 
-## Further reflections
+Comparing answers against independently verified reference data could provide a more reliable way of checking factual accuracy.
 
-Our results also made us reflect on the quality of our tests. Having five tests does not necessarily mean that an AI component has been thoroughly tested. What matters is whether the tests cover different types of errors. In our case, the consistency tests only check whether the correct capital appears in the response, leaving additional incorrect information undetected.
 
-We also think that independent verification is important when evaluating AI-generated answers. An LLM used as a judge can make mistakes just like the model being evaluated. Comparing answers against independently verified reference data could therefore provide a more reliable way of checking factual accuracy.
-
-Finally, we noticed that the model often added information that was not requested. A more restrictive prompt, asking for only the capital’s name, might reduce unnecessary details and the risk of introducing incorrect information. However, this would need to be tested before we could determine whether it actually improves reliability.
