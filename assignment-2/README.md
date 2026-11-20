@@ -43,3 +43,11 @@ Our consistency tests only require two out of three responses to pass the proper
 We used Gemma 3 (gemma3:1b) as our generator and Llama 3.2 (llama3.2:latest) as our judge. We tested the judge by giving it two predefined answers where we expected it to accept "The capital of Sweden is Stockholm" and reject "The capital of Bealandia is Bea City" (Bealandia being a made-up country). Both tests passed in every run.
 
 This means that we only use LLM-as-a-Judge in two out of five tests, and not in our consistency tests. We are testing the generator and the judge separately. It would be interesting to see if the judge could detect the hallucinations that our property checks missed. Since the judge itself is also an AI that can make mistakes, we would still want to manually review the responses to understand if a mistake was made and by whom - the generator or the judge.
+
+## Further reflections
+
+Our results also made us reflect on the quality of our tests. Having five tests does not necessarily mean that an AI component has been thoroughly tested. What matters is whether the tests cover different types of errors. In our case, the consistency tests only check whether the correct capital appears in the response, leaving additional incorrect information undetected.
+
+We also think that independent verification is important when evaluating AI-generated answers. An LLM used as a judge can make mistakes just like the model being evaluated. Comparing answers against independently verified reference data could therefore provide a more reliable way of checking factual accuracy.
+
+Finally, we noticed that the model often added information that was not requested. A more restrictive prompt, asking for only the capital’s name, might reduce unnecessary details and the risk of introducing incorrect information. However, this would need to be tested before we could determine whether it actually improves reliability.
